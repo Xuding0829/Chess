@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.DeleteMessageMapper">
+    <delete id="delete_user" parameterType="java.lang.String">
+        delete from user
+        where id=#{userId}
+    </delete>
+
+    <delete id="delete_association" parameterType="java.lang.String">
+        DELETE FROM room
+        WHERE id=#{associationId}
+    </delete>
+
+    <delete id="delete_comment" parameterType="java.lang.String">
+        delete from comment
+        where id=#{commentId}
+    </delete>
+
+    <delete id="delete_news" parameterType="java.lang.Integer">
+        delete from news
+        where id=#{id}
+    </delete>
+
+    <delete id="delete_purchase" parameterType="java.lang.String">
+        delete from purchase
+        where id=#{purchaseId}
+    </delete>
+
+    <delete id="delete_product" parameterType="java.lang.String">
+        delete from products
+        where id=#{productId}
+    </delete>
+
+
+</mapper>

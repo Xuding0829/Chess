@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.GetMessageMapper">
+    <select id="GetNews" resultType="org.example.pojo.News">
+        SELECT * FROM news
+    </select>
+
+    <select id="GetItems" resultType="org.example.pojo.Item">
+        SELECT * FROM products
+    </select>
+
+    <select id="GetRooms" resultType="org.example.pojo.Room">
+        SELECT name, num, sumscore, username, room.id
+        FROM room, room_admin, user
+        where room.name = room_admin.room and room_admin.admin_id = user.id
+    </select>
+
+    <select id="GetComments" resultType="org.example.pojo.Comment">
+        SELECT *
+        from comment
+    </select>
+
+    <select id="GetUserMessage" resultType="org.example.pojo.User" parameterType="java.lang.String">
+        SELECT *
+        FROM user
+        where #{username} = username
+    </select>
+
+    <select id="GetPurchase_items" resultType="org.example.pojo.purchase_item">
+        select *
+        from purchase
+    </select>
+
+    <select id="GetAllUser" resultType="org.example.pojo.User">
+        select *
+        from user
+    </select>
+
+    <select id="GetAllImages" resultType="org.example.pojo.Img">
+        select *
+        from gifimg
+    </select>
+</mapper>

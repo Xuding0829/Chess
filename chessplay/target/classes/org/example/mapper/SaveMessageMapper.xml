@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.SaveMessageMapper">
+    <insert id="saveComments">
+        insert into comment(id, username, content, time)
+        values
+        (#{id}, #{username}, #{content}, #{time})
+    </insert>
+
+    <update id="joinAssociation" parameterType="java.util.Map">
+        update user
+        set association = #{association} where username = #{username}
+    </update>
+
+    <insert id="purchase">
+        insert into purchase(id, item, price, user_id, description)
+        values
+        (#{id}, #{name}, #{price}, #{user_id}, #{description})
+    </insert>
+
+    <update id="updateUser">
+        update user
+        set username=#{username}, password=#{password}
+        where id=#{id}
+    </update>
+
+    <update id="afterGame">
+        update user
+        set score = score + 100, coin = coin + 100
+        where id=#{id}
+    </update>
+
+    <insert id="addAssociation">
+        insert into room_admin(admin_id, room)
+        values
+        (#{user_id}, #{association})
+    </insert>
+</mapper>
